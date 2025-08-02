@@ -1,7 +1,8 @@
 FROM node:16
 
 # Install build tools required for bcrypt
-RUN apt-get update && \
+RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y build-essential python3
 
 # Set the working directory inside the container
